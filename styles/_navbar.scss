@@ -1,0 +1,221 @@
+@import "colors";
+@import "media-quaries";
+@import "constant";
+@import "fonts";
+
+
+%align-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%hover-item{
+    transform: scale(1.2);
+    transition:ease .3s;
+}
+.navbar{
+    background-color: #ffffff;
+    background-image: linear-gradient(0deg, #e8f602 36%, #c1c624 56%, #dceb00 91%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 1px 5px 10px;
+    z-index: 999;
+    height: 100px;
+    width: 100%;
+    top: 0;
+    position: fixed;
+    box-shadow: 2px 2px 10px gray;
+    border-radius: $borderRadius;
+
+    @extend %align-center;
+
+    @include tablet{
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    @include mobile{
+        height: 50px;
+    }
+
+    &_logo{
+        @extend %align-center;
+
+        @include mobile{
+            gap: 0px;
+            padding-left: 10px;
+        }
+    
+        &-img {
+            cursor: pointer;
+            @extend %align-center;
+
+
+            &:hover{
+            @extend %hover-item;
+            }
+
+            @include tablet{
+                height: 50px;
+            }
+
+            @include mobile{
+                height: 40px;
+            }
+        }
+
+        &-title{
+            font-size: 52px;
+            font-family: $logo-font;
+            color: $light;
+            text-decoration: none;
+            cursor: pointer;
+            @extend %align-center;
+            justify-content: left;
+
+            @include tablet{
+                font-size: 32px;
+            }
+
+            @include mobile{
+                font-size: 24px;
+            }
+    
+            &:hover{
+            @extend %hover-item;
+            padding-left: 15px;
+            }                                                   
+
+            & span{
+                color: $light;
+                font-family: $main-h1;
+                cursor: pointer;
+                padding-left: 10px;
+            }
+        }
+    }
+
+    &_bars{
+        opacity: 0;
+        font-size: 40px;
+        color: $light;
+        @extend %align-center;
+        
+        @include small{
+            opacity: 1;
+        }
+        
+        @include tablet{
+            opacity: 1;
+        }
+
+        @include mobile {
+            font-size: 20px;
+            margin-left: 20px;
+        }
+
+        &:hover{
+            @extend %hover-item;
+            color: $orangeREd;
+            @extend %align-center;
+        }
+    }
+
+    &_menu{
+        @extend %align-center;
+
+        @include small{
+            display:none;
+        }
+
+        @include tablet{
+            display:none;
+
+        }
+
+        &_list{
+            @extend %align-center;
+            list-style-type: none;
+            gap: 25px;
+
+            &_item{
+                margin-left: 10px;
+                padding: 1px 0;
+                
+                &-link{
+                    text-decoration: none;
+                    color: $light;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 30px;
+                    transition: .3s ease-in;
+                    
+                    &:hover{
+                        font-size: 32px;
+                        color:$orangeREd
+                    }
+                }
+            }
+        }
+    }
+
+    &_button{
+        @extend %align-center;
+        justify-content: right;;
+        padding: 10px 10px;
+
+        &-btn1 {
+            @extend %align-center;
+            justify-content: right;
+            font-size: 25px;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            border-radius: $borderRadius;
+            background-color:$lime;
+            padding: 5px 10px;
+            cursor: pointer;
+
+            @include tablet {
+                display:none;
+            }
+
+            &:hover{
+                background-color: $light;
+                @extend %hover-item;    
+            }
+
+            & a{
+                text-decoration: none;
+                color: $light;
+
+                &:hover{
+                    color: $lime;
+                }
+            }
+        }
+        &-btn2{
+           font-size: 40px;
+           color: $light;
+           opacity: 0;
+           cursor: pointer;
+           margin-right: 20px;
+
+           @include tablet{
+                opacity: 1;
+           }
+
+           @include mobile {
+                font-size: 20px;
+            }
+
+            &:hover{
+                @extend %hover-item;
+                color: $orangeREd;
+                @extend %align-center;
+            }       
+        }
+    }
+}
